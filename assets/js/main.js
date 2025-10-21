@@ -27,6 +27,7 @@ window.addEventListener("load", () => {
         sessionStorage.setItem("hasScrolled", "true");
 
         const Path = `assets/python/GenerateFiles/guests/${id}.json`
+        console.log(Path)
 
         fetch(Path)
         .then(response => response.json())
