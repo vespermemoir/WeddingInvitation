@@ -2,8 +2,6 @@ const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 const id = urlParams.get('id');
 
-console.log(id)
-
 var modal = document.getElementById("CashlessModal");
 var span = document.getElementsByClassName("close")[0];
 
@@ -17,47 +15,43 @@ window.onclick = function(event) {
     }
 }
 
-if ('scrollRestoration' in history) {
-    history.scrollRestoration = 'manual';
-}
+// if ('scrollRestoration' in history) {
+//     history.scrollRestoration = 'manual';
+// }
 
-window.addEventListener("load", () => {
-    if (!sessionStorage.getItem("hasScrolled")) {
-        document.getElementById("FirstPage").scrollIntoView({ behavior: "smooth" });
-        sessionStorage.setItem("hasScrolled", "true");
+disableScrolling();
+document.body.style.overflowY = "hidden"
 
-        const Path = `assets/python/GenerateFiles/guests/${id}.json`
-        console.log(Path)
+const Path = `assets/python/GenerateFiles/guests/${id}.json`
+fetch(Path)
+.then(response => response.json())
+.then(data => {
+    const GuestName = document.getElementById("GuestNameTextCover")
+    GuestName.append(data.GuestName);
 
-        fetch(Path)
-        .then(response => response.json())
-        .then(data => {
-            const GuestName = document.getElementById("GuestNameTextCover")
-            GuestName.append(data.GuestName);
+    const GuestInput = document.getElementById("GuestName")
+    GuestInput.value = data.GuestName
 
-            const GuestInput = document.getElementById("GuestName")
-            GuestInput.value = data.GuestName
+    const ButtonSubmit = document.getElementById("BtnSubmit")
+    data.Updated ? ButtonSubmit.setAttribute("hidden") : ""
 
-            const ButtonSubmit = document.getElementById("BtnSubmit")
-            data.Updated ? ButtonSubmit.setAttribute("hidden") : ""
-
-            const MaximumGuest = data.GuestMaxAttendance
-            const InputSelect = document.getElementById("GuestCounter")
-            for (let i = 1; i <= MaximumGuest; i++) {
-                const NewOption = new Option(i, i);
-                InputSelect.add(NewOption);
-            }
-        })
-        .catch(error => console.error('Error loading JSON:', error));
+    const MaximumGuest = data.GuestMaxAttendance
+    const InputSelect = document.getElementById("GuestCounter")
+    for (let i = 1; i <= MaximumGuest; i++) {
+        const NewOption = new Option(i, i);
+        InputSelect.add(NewOption);
     }
-});
+})
+.catch(error => console.error('Error loading JSON:', error));
 
 document.getElementById('ScrollButton').addEventListener('click', function() {
     const music = document.getElementById("music")
     music.volume = 0.4
     music.play();
-    document.body.style.overflowY = "scroll"
-    document.getElementsByClassName("wrapper")[0].setAttribute("scroll-snap-type", "y mandatory")
+    // document.body.style.overflowY = "scroll"
+    document.body.style.overflowY = "unset"
+    window.onscroll = function() {}
+    // document.getElementsByClassName("wrapper")[0].setAttribute("scroll-snap-type", "y mandatory")
 
     setTimeout(() => {
         document.getElementById("SecondPage").scrollIntoView({ behavior: "smooth" });
@@ -71,6 +65,14 @@ document.getElementById('BtnCashless').addEventListener('click', function() {
 document.getElementById('BtnSubmit').addEventListener('click', function() {
 
 });
+
+function disableScrolling() {
+    var x = window.scrollX;
+    var y = window.scrollY;
+    window.onscroll = function() {
+        window.scrollTo(x, y);
+    }
+}
 
 function CopyToClipboard(Button) {
     const ButtonValue = Button.value;

@@ -9,16 +9,9 @@
     src: url('../fonts/dear_script/Dear\ Script\ \(Demo_Font\).otf');
 }
 
-html, body {
-    touch-action: manipulation;
-}
-
 body {
     overflow-x: hidden;
-    overflow-y: hidden;
     scroll-padding: 0;
-
-    touch-action: pan-y;
 }
 
 .modal {
