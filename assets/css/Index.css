@@ -1,0 +1,819 @@
+@font-face {
+    font-family: 'CoverText';
+    src: url('../fonts/Demo_Fonts/Fontspring-DEMO-theseasons-bdit.otf');
+
+    font-family: 'CoverText-2';
+    src: url('../fonts/New-Icon-Serif.otf');
+
+    font-family: 'FontHeader';
+    src: url('../fonts/dear_script/Dear\ Script\ \(Demo_Font\).otf');
+}
+
+html, body {
+    touch-action: manipulation;
+}
+
+body {
+    overflow-x: hidden;
+    overflow-y: hidden;
+    scroll-padding: 0;
+
+    touch-action: pan-y;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+}
+.modal-header {
+    padding: 2rem;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#ModalHeader {
+    font-size: 4rem;
+}
+
+.close {
+    font-size: 2.75rem;
+}
+
+.modal-body {
+    padding: 0.5rem 1rem 3rem 1rem;
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+}
+
+.BankAccountCard {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    border: 1px solid #000;
+    border-radius: 15px;
+    padding: 30px;
+
+    margin: 1.5rem 0;
+
+    width: 90%;
+    height: auto;
+}
+
+.BackAccountText {
+    font-size: 1.75rem;
+}
+
+.CopyToClipboard {
+    background-color: #888;
+    color: whitesmoke;
+
+    font-size: 1.75rem;
+    border-radius: 15px;
+}
+
+.modal-content {
+    position: relative;
+    background-color: #fefefe;
+    top: 40%;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 70%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+@keyframes animatetop {
+    from {top: -300px; opacity: 0}
+    to {top: 0; opacity: 1}
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.wrapper {
+    height: 100vh;
+}
+
+.container {
+    height: 100vh;
+    width: 100vw;
+    color: white;
+    text-align: center;
+    flex: none;
+
+    margin: 0;
+    padding: 0;
+}
+
+.PictureContainer {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+
+    object-fit: cover;
+    background: url('../PreWeddPictures/Cover-1.webp') no-repeat center center / cover;
+}
+
+div.BlockCoverPicture {
+    position: absolute;
+    z-index: 1;
+    inset: 0;
+
+    background: #0A0A0A;
+    opacity: 55%;
+}
+
+.content {
+    position: relative;
+    z-index: 2;
+    height: 65vh;
+    width: 100vw;
+
+    top: 20%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+p#TextCover {
+    font-size: 96px;
+    text-align: center;
+    margin-top: 20%;
+    font-family: CoverText;
+    color: #FFFEFC;
+    position: relative;
+    z-index: 2;
+}
+
+p#SubTextCover {
+    font-size: 64px;
+    margin-top: -30px;
+    text-align: center;
+    font-family: CoverText-2;
+    color: #FFFEFC;
+    position: relative;
+    z-index: 2;
+}
+
+p#HelloTextCover {
+    position: relative;
+
+    font-size: 52px;
+    font-family: CoverText;
+    color: #FFFEFC;
+
+    z-index: 2;
+}
+
+p#GuestNameTextCover {
+    position: relative;
+
+    font-size: 52px;
+    text-align: center;
+
+    font-family: CoverText;
+    color: #FFFEFC;
+
+    margin-top: -24px;
+    margin-bottom: 1rem;
+    z-index: 2;
+}
+
+#ScrollButton {
+    position: relative;
+    background: white;
+    color: black;
+
+    border: none;
+    border-radius: 15px;
+    padding: 1.2rem 3rem;
+
+    cursor: pointer;
+    font-size: 2rem;
+    transition: 0.3s;
+
+    z-index: inherit;
+}
+
+#ScrollButton>i {
+    margin-left: 5px;
+    z-index: inherit;
+    font-size: 2rem;
+}
+
+#ScrollButton button:hover {
+    background: #000;
+}
+
+#BackgroundSecondPage {
+    position: relative;
+
+    height: 100vh;
+    width: 100vw;
+    inset: 0;
+    z-index: 0;
+
+    object-fit: cover;
+    background: url('../PreWeddPictures/SecondPage-1.webp') no-repeat center center / cover;
+}
+
+#WhiteCanvasSecondPage {
+    position: relative;
+    z-index: 1;
+
+    border: 1px solid #0A0A0A;
+    background-color: white;
+
+    width: 70%;
+    height: 60%;
+
+    top: 20%;
+    left: 15%;
+}
+
+#PictureInsideWhiteCanvas {
+    position: relative;
+    z-index: 2;
+
+    width: 95%;
+    height: 85%;
+
+    top: 2.5%;
+    left: 2.5%;
+
+    object-fit: cover;
+    background: url("../PreWeddPictures/SecondPage-3.webp") no-repeat center center / cover;
+}
+
+#Hashtag {
+    margin-top: 10%;
+
+    font-family: CoverText;
+    font-size: 4rem;
+    color: #000;
+
+    z-index: 2;
+}
+
+#BackgroundThirdPage {
+    position: relative;
+
+    height: 100vh;
+    width: 100vw;
+    inset: 0;
+    z-index: 0;
+
+    object-fit: cover;
+    background: url('../PreWeddPictures/ThirdPage-1.webp') no-repeat center center / cover;
+}
+
+#ScriptureBox {
+    position: relative;
+
+    height: auto;
+    width: 85vw;
+    top: 35%;
+    left: 7.5vw;
+    z-index: 1;
+
+    background-color: rgba(0, 0, 0, 0.5);
+
+    border-radius: 15px;
+
+    padding: 20px;
+}
+
+#Scripture {
+    z-index: 2;
+
+    font-size: 2.5rem;
+    color: #FFF;
+}
+
+#ScriptureMatthew {
+    z-index: 2;
+
+    font-size: 2.75rem;
+    font-weight: bold;
+}
+
+#GroomsContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    height: 100vh;
+    width: 100vw;
+
+    padding: 30px;
+}
+
+#TheGroomBox {
+    position: relative;
+
+    padding: 4rem;
+}
+
+#GroomText {
+    position: relative;
+
+    top: 5%;
+
+    font-family: FontHeader;
+    font-size: 6rem;
+    color: #000;
+}
+
+#GroomsPhotos {
+    position: relative;
+
+    height: 100%;
+    width: 100%;
+
+    object-fit: cover;
+    background: url('../PreWeddPictures/FourthPage-1.webp') no-repeat center center / cover;
+
+    padding-right: 5vw;
+    padding-left: 5vw;
+}
+
+#GroomIndentityBox {
+    position: relative;
+    height: auto;
+    top: 20px;
+}
+
+#GroomIdentity {
+    color: #000;
+
+    font-size: 4rem;
+    font-family: CoverText;
+}
+
+#GroomParents {
+    color: #000;
+
+    font-size: 2.75rem;
+    font-family: CoverText;
+}
+
+#BridesContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    height: 100vh;
+    width: 100vw;
+
+    padding: 30px;
+}
+
+#TheBrideBox {
+    position: relative;
+
+    padding: 4rem;
+}
+
+#BrideText {
+    position: relative;
+
+    top: 5%;
+
+    font-family: FontHeader;
+    font-size: 6rem;
+    color: #000;
+}
+
+#BridesPhotos {
+    position: relative;
+
+    height: 100%;
+    width: 100%;
+
+    object-fit: cover;
+    background: url('../PreWeddPictures/FourthPage-2.webp') no-repeat center center / cover;
+
+    padding-right: 5vw;
+    padding-left: 5vw;
+}
+
+#BrideIndentityBox {
+    position: relative;
+    height: auto;
+    top: 20px;
+}
+
+#BrideIdentity {
+    color: #000;
+
+    font-size: 4rem;
+    font-family: CoverText;
+}
+
+#BrideParents {
+    color: #000;
+
+    font-size: 2.75rem;
+    font-family: CoverText;
+}
+
+.DetailsContainer {
+    height: 100vh;
+    width: 100vw;
+
+    object-fit: cover;
+    background: url('../PreWeddPictures/SixthPage-2.webp') no-repeat center center / cover;
+    background-position: 60% center;
+}
+
+.overlay {
+    display: flex;
+    flex-direction: column;
+
+    height: 100vh;
+    width: 100vw;
+
+    background-color: rgba(26, 17, 16, 0.7);
+
+    padding: 2rem;
+}
+
+.SaveTheDateBox {
+    position: relative;
+
+    padding: 4rem;
+}
+
+#SaveTheDateText {
+    position: relative;
+
+    top: 5%;
+
+    font-size: 6rem;
+    font-family: FontHeader;
+
+    color: #fff;
+}
+
+.DateContainer {
+    display: flex;
+    flex-direction: column;
+
+    height: 100%;
+    width: 100%;
+
+    padding: 30px;
+}
+
+.HolyMatrimonyContainer {
+    display: flex;
+    flex-direction: column;
+
+    top: 10%;
+
+    height: auto;
+    width: 100%;
+
+    padding: 15px;
+}
+
+.HolyMatrimonyText {
+    top: 5%;
+
+    font-family: CoverText;
+    font-size: 4rem;
+    color: #fff;
+
+    padding: 1.5rem;
+}
+
+.DetailHolyMatrimony {
+    font-family: CoverText;
+    font-size: 2.5rem;
+    color: #fff;
+}
+
+.HorizontalLine {
+    border-top: 2px solid white;
+    width: 90%;
+    margin: 20px auto; 
+}
+
+.LunchText {
+    top: 5%;
+
+    font-family: CoverText;
+    font-size: 4rem;
+    color: #fff;
+
+    padding: 1.5rem;
+}
+
+.GalleryContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    height: 100vh;
+    width: 100vw;
+}
+
+.GalleryBox {
+    position: relative;
+
+    padding: 4rem;
+}
+
+#GalleryText {
+    position: relative;
+
+    top: 5%;
+
+    font-size: 6rem;
+    font-family: FontHeader;
+
+    color: #000;
+}
+
+.GalleryPhotoRowContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    height: 100%;
+    width: 100vw;
+
+    margin-bottom: 3rem;
+}
+
+.GalleryPhotoRow {
+    position: relative;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    height: 100%;
+    width: 90vw;
+    left: 5vw;
+
+    margin-bottom: 20px;
+}
+
+.GalleryPhoto {
+    height: 100%;
+    width: 100%;
+
+    margin: 2rem;
+}
+
+.Photo1 {
+    object-fit: cover;
+    background: url('../PreWeddPictures/Seventh-1.webp') no-repeat center center / cover;
+}
+
+.Photo2 {
+    object-fit: cover;
+    background: url('../PreWeddPictures/Seventh-4.webp') no-repeat center center / cover;
+    background-position: 60% center;
+}
+
+.Photo3 {
+    object-fit: cover;
+    background: url('../PreWeddPictures/Seventh-7.webp') no-repeat center center / cover;
+    background-position: 30% center;
+}
+
+.Photo4 {
+    object-fit: cover;
+    background: url('../PreWeddPictures/Seventh-5.webp') no-repeat center center / cover;
+    background-position: 60% center;
+}
+
+.Photo5 {
+    object-fit: cover;
+    background: url('../PreWeddPictures/Seventh-8.webp') no-repeat center center / cover;
+    background-position: 65% center;
+}
+
+.Photo6 {
+    object-fit: cover;
+    background: url('../PreWeddPictures/Seventh-3.webp') no-repeat center center / cover;
+}
+
+.Photo7 {
+    object-fit: cover;
+    background: url('../PreWeddPictures/Seventh-9.webp') no-repeat center center / cover;
+    background-position: 25% center;
+}
+
+.Photo8 {
+    object-fit: cover;
+    background: url('../PreWeddPictures/Seventh-2.webp') no-repeat center center / cover;
+    background-position: 60% center;
+}
+
+.Photo9 {
+    object-fit: cover;
+    background: url('../PreWeddPictures/Seventh-6.webp') no-repeat center center / cover;
+    background-position: 80% center;
+}
+
+.WeddingGiftContainer {
+    height: 100vh;
+    width: 100vw;
+
+    object-fit: cover;
+    background: url('../PreWeddPictures/EightPage-1.webp') no-repeat center center / cover;
+    background-position: 20% center;
+}
+
+.WeddingGiftBox {
+    position: relative;
+
+    padding: 4rem;
+}
+
+#WeddingGiftText {
+    position: relative;
+
+    top: 5%;
+
+    font-size: 6rem;
+    font-family: FontHeader;
+
+    color: #fff;
+}
+
+.DetailsWeddingGiftBox {
+    position: relative;
+
+    top: 10%;
+
+    padding: 2rem;
+}
+
+#DetailsWeddingGiftText {
+    font-size: 3.25rem;
+
+    font-family: CoverText-2;
+}
+
+#BtnCashless {
+    margin-top: 40px;
+
+    position: relative;
+    background: white;
+    color: black;
+
+    border: none;
+    border-radius: 15px;
+    padding: 1.2rem 3rem;
+
+    cursor: pointer;
+    font-size: 2rem;
+    transition: 0.3s;
+
+    z-index: inherit;
+}
+
+.RsvpContainer {
+    height: 100vh;
+    width: 100vw;
+
+    object-fit: cover;
+    background: url('../PreWeddPictures/NinthPage-1.webp') no-repeat center center / cover;
+}
+
+.RsvpBox {
+    position: relative;
+
+    padding: 4rem;
+}
+
+#RsvpText {
+    position: relative;
+
+    top: 5%;
+
+    font-size: 6rem;
+    font-family: FontHeader;
+
+    color: #fff;
+}
+
+.DetailsRsvpBox {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    height: 100%;
+    width: 100%;
+
+    padding: 20px;
+}
+
+.RsvpDetailsLabel {
+    font-size: 3.25rem;
+
+    font-family: CoverText-2;
+}
+
+.InputText {
+    width: 100%;
+    padding: 8px;
+
+    border: 6px solid black;
+
+    font-size: 2.75rem;
+}
+
+.InputSelect {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+
+    font-size: 2.75rem;
+}
+
+.BtnSubmit {
+    width: 100%;
+    height: auto;
+
+    border: 6px solid black;
+
+    font-size: 2.75rem;
+    color: white;
+    border-radius: 15px;
+    background-color: black;
+
+    padding: 12px;
+}
+
+.SeeYouContainer {
+    height: 100vh;
+    width: 100vw;
+
+    object-fit: cover;
+    background: url('../PreWeddPictures/TenthPage-1.webp') no-repeat center center / cover;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+h1 {
+    position: relative;
+
+    top: 20%;
+
+    font-family: CoverText;
+    font-size: 4rem;
+}
+
+.WithLoveContainer {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+
+    bottom: 8%;
+}
+
+#WithLoveText {
+    position: relative;
+
+    font-family: CoverText;
+    font-size: 4rem;
+}
+
+h2 {
+    position: relative;
+
+    font-family: FontHeader;
+    font-size: 3rem;
+}
