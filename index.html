@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"/>
+    <meta name="viewport" content="user-scalable=yes">
     <title> Wedding of Igor Maha Putra and Patricia Lucky Santoso </title>
 
     <link rel="stylesheet" href="assets/css/font-awesome.min.css">
@@ -131,19 +131,37 @@
                 </div>
                 <div class="GalleryPhotoRowContainer">
                     <div class="GalleryPhotoRow">
-                        <div class="GalleryPhoto Photo1"></div>
-                        <div class="GalleryPhoto Photo2"></div>
-                        <div class="GalleryPhoto Photo3"></div>
+                        <div class="GalleryPhoto">
+                            <img loading="lazy" class="Photo Photo1" src="/WeddingInvitation/assets/PreWeddPictures/Seventh-1.webp">
+                        </div>
+                        <div class="GalleryPhoto">
+                            <img loading="lazy" class="Photo Photo2" src="/WeddingInvitation/assets/PreWeddPictures/Seventh-4.webp">
+                        </div>
+                        <div class="GalleryPhoto">
+                            <img loading="lazy" class="Photo Photo3" src="/WeddingInvitation/assets/PreWeddPictures/Seventh-7.webp">
+                        </div>
                     </div>
                     <div class="GalleryPhotoRow">
-                        <div class="GalleryPhoto Photo4"></div>
-                        <div class="GalleryPhoto Photo5"></div>
-                        <div class="GalleryPhoto Photo6"></div>
+                        <div class="GalleryPhoto">
+                            <img loading="lazy" class="Photo Photo4" src="/WeddingInvitation/assets/PreWeddPictures/Seventh-5.webp">
+                        </div>
+                        <div class="GalleryPhoto">
+                            <img loading="lazy" class="Photo Photo5" src="/WeddingInvitation/assets/PreWeddPictures/Seventh-8.webp">
+                        </div>
+                        <div class="GalleryPhoto">
+                            <img loading="lazy" class="Photo Photo6" src="/WeddingInvitation/assets/PreWeddPictures/Seventh-3.webp">
+                        </div>
                     </div>
                     <div class="GalleryPhotoRow">
-                        <div class="GalleryPhoto Photo7"></div>
-                        <div class="GalleryPhoto Photo8"></div>
-                        <div class="GalleryPhoto Photo9"></div>
+                        <div class="GalleryPhoto">
+                            <img loading="lazy" class="Photo Photo7" src="/WeddingInvitation/assets/PreWeddPictures/Seventh-9.webp">
+                        </div>
+                        <div class="GalleryPhoto">
+                            <img loading="lazy" class="Photo Photo8" src="/WeddingInvitation/assets/PreWeddPictures/Seventh-2.webp">
+                        </div>
+                        <div class="GalleryPhoto">
+                            <img loading="lazy" class="Photo Photo9" src="/WeddingInvitation/assets/PreWeddPictures/Seventh-6.webp">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -159,7 +177,16 @@
                         <p id="DetailsWeddingGiftText">
                             Your presence and prayer will be the greatest wedding gift we could ever ask for. No other gifts are needed nor expected. However, if giving is a sign of love, we are happy to receive it and of course it will complement our happiness even more.
                         </p>
-                        <button id="BtnCashless">Cashless <i class="fa fa-money" aria-hidden="true"></i></button>
+
+                        <div class="BankAccountCard">
+                            <p class="BackAccountText">BCA-8291261876<br>a.n Igor Maha Putra</p>
+                            <button class="CopyToClipboard" value="8291261876" onclick="CopyToClipboard(this)">Copy <i class="fa fa-money" aria-hidden="true"></i></button>
+                        </div>
+
+                        <div class="BankAccountCard">
+                            <p class="BackAccountText">BCA-0115361444<br>a.n Patricia Lucky Santoso</p>
+                            <button class="CopyToClipboard" value="0115361444" onclick="CopyToClipboard(this)">Copy <i class="fa fa-money" aria-hidden="true"></i></button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -198,26 +225,6 @@
             </div>
         </div>
     </section>
-
-    <div id="CashlessModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3 id="ModalHeader">BCA</h3>
-                <span class="close">&times;</span>
-            </div>
-            <div class="modal-body">
-                <div class="BankAccountCard">
-                    <p class="BackAccountText">8291261876<br>a.n Igor Maha Putra</p>
-                    <button class="CopyToClipboard" value="8291261876" onclick="CopyToClipboard(this)">Copy <i class="fa fa-money" aria-hidden="true"></i></button>
-                </div>
-
-                <div class="BankAccountCard">
-                    <p class="BackAccountText">0115361444<br>a.n Patricia Lucky Santoso</p>
-                    <button class="CopyToClipboard" value="0115361444" onclick="CopyToClipboard(this)">Copy <i class="fa fa-money" aria-hidden="true"></i></button>
-                </div>
-            </div>
-        </div>
-    </div>
 </body>
 
 <link rel="stylesheet" href="assets/css/bootstrap.min.css">

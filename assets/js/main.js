@@ -2,17 +2,8 @@ const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 const id = urlParams.get('id');
 
-var modal = document.getElementById("CashlessModal");
-var span = document.getElementsByClassName("close")[0];
-
-span.onclick = function() {
-    modal.style.display = "none";
-}
-
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
+if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
 }
 
 id == null || id == "" ? handleVerification() : ""
@@ -20,7 +11,7 @@ window.addEventListener('resize', handleOrientation)
 window.addEventListener('orientationchange', handleOrientation)
 if (handleOrientation()) {
     disableScrolling()
-    document.body.style.overflowY = "hidden"
+    // document.body.style.overflowY = "hidden"
 
     const Path = `assets/python/GenerateFiles/guests/${id}.json`
     fetch(Path)
@@ -48,7 +39,7 @@ if (handleOrientation()) {
 document.getElementById('ScrollButton').addEventListener('click', function() {
     const music = document.getElementById("music")
     music.volume = 0.4
-    music.play();
+    // music.play();
     document.body.style.overflowY = "unset"
     window.onscroll = function() {}
 
@@ -57,12 +48,8 @@ document.getElementById('ScrollButton').addEventListener('click', function() {
     }, 100);
 });
 
-document.getElementById('BtnCashless').addEventListener('click', function() {
-    modal.style.display = "block"
-});
-
 document.getElementById('BtnSubmit').addEventListener('click', function() {
-
+    
 });
 
 function disableScrolling() {

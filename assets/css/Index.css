@@ -11,43 +11,7 @@
 
 body {
     overflow-x: hidden;
-    scroll-padding: 0;
-}
-
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgb(0,0,0);
-    background-color: rgba(0,0,0,0.4);
-}
-.modal-header {
-    padding: 2rem;
-
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-#ModalHeader {
-    font-size: 4rem;
-}
-
-.close {
-    font-size: 2.75rem;
-}
-
-.modal-body {
-    padding: 0.5rem 1rem 3rem 1rem;
-    display: flex;
-    flex-direction: column;
-
-    align-items: center;
+    /* scroll-padding: 0; */
 }
 
 .BankAccountCard {
@@ -55,18 +19,20 @@ body {
     flex-direction: row;
     justify-content: space-between;
 
-    border: 1px solid #000;
+    border: 1px solid #fff;
     border-radius: 15px;
     padding: 30px;
 
     margin: 1.5rem 0;
 
-    width: 90%;
+    width: 100%;
     height: auto;
 }
 
 .BackAccountText {
     font-size: 1.75rem;
+
+    text-align: left;
 }
 
 .CopyToClipboard {
@@ -75,31 +41,9 @@ body {
 
     font-size: 1.75rem;
     border-radius: 15px;
-}
 
-.modal-content {
-    position: relative;
-    background-color: #fefefe;
-    top: 40%;
-    margin: auto;
-    padding: 0;
-    border: 1px solid #888;
-    width: 70%;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
-    animation-name: animatetop;
-    animation-duration: 0.4s
-}
-
-@keyframes animatetop {
-    from {top: -300px; opacity: 0}
-    to {top: 0; opacity: 1}
-}
-
-.close:hover,
-.close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
+    padding-right: 45px;
+    padding-left: 45px;
 }
 
 .wrapper {
@@ -350,6 +294,8 @@ p#GuestNameTextCover {
 
     padding-right: 5vw;
     padding-left: 5vw;
+
+    transition: opacity 0.6s ease-out;
 }
 
 #GroomIndentityBox {
@@ -410,6 +356,8 @@ p#GuestNameTextCover {
 
     padding-right: 5vw;
     padding-left: 5vw;
+
+    transition: opacity 0.6s ease-out;
 }
 
 #BrideIndentityBox {
@@ -576,62 +524,47 @@ p#GuestNameTextCover {
 }
 
 .GalleryPhoto {
+    position: relative;
+
     height: 100%;
     width: 100%;
 
     margin: 2rem;
 }
 
-.Photo1 {
-    object-fit: cover;
-    background: url('../PreWeddPictures/Seventh-1.webp') no-repeat center center / cover;
-}
+.Photo {
+    width: 100%;
+    height: 100%;
 
-.Photo2 {
     object-fit: cover;
-    background: url('../PreWeddPictures/Seventh-4.webp') no-repeat center center / cover;
-    background-position: 60% center;
 }
 
 .Photo3 {
-    object-fit: cover;
-    background: url('../PreWeddPictures/Seventh-7.webp') no-repeat center center / cover;
-    background-position: 30% center;
+    object-position: 20% center;
 }
 
 .Photo4 {
-    object-fit: cover;
-    background: url('../PreWeddPictures/Seventh-5.webp') no-repeat center center / cover;
-    background-position: 60% center;
+    object-position: 60% center;
 }
 
 .Photo5 {
-    object-fit: cover;
-    background: url('../PreWeddPictures/Seventh-8.webp') no-repeat center center / cover;
-    background-position: 65% center;
-}
-
-.Photo6 {
-    object-fit: cover;
-    background: url('../PreWeddPictures/Seventh-3.webp') no-repeat center center / cover;
+    object-position: 65% center;
 }
 
 .Photo7 {
-    object-fit: cover;
-    background: url('../PreWeddPictures/Seventh-9.webp') no-repeat center center / cover;
-    background-position: 25% center;
+    object-position: 25% center;
 }
 
 .Photo8 {
-    object-fit: cover;
-    background: url('../PreWeddPictures/Seventh-2.webp') no-repeat center center / cover;
-    background-position: 60% center;
+    object-position: 60% center;
 }
 
 .Photo9 {
+    object-position: 80% center;
+}
+
+.Photo10 {
     object-fit: cover;
-    background: url('../PreWeddPictures/Seventh-6.webp') no-repeat center center / cover;
-    background-position: 80% center;
 }
 
 .WeddingGiftContainer {
