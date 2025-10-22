@@ -9,6 +9,9 @@ if ('scrollRestoration' in history) {
 id == null || id == "" ? handleVerification() : ""
 window.addEventListener('resize', handleOrientation)
 window.addEventListener('orientationchange', handleOrientation)
+const loadingPanel = document.getElementById('loading-panel');
+loadingPanel.removeAttribute("hidden")
+
 if (handleOrientation()) {
     disableScrolling()
     // document.body.style.overflowY = "hidden"
@@ -34,6 +37,10 @@ if (handleOrientation()) {
         }
     })
     .catch(error => console.error('Error loading JSON:', error));
+
+    setTimeout(() => {
+        loadingPanel.setAttribute("hidden", "");
+    }, 1500);
 }
 
 document.getElementById('ScrollButton').addEventListener('click', function() {
