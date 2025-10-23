@@ -44,7 +44,7 @@ if (handleOrientation()) {
 document.getElementById('ScrollButton').addEventListener('click', function() {
     const music = document.getElementById("music")
     music.volume = 0.4
-    music.play();
+    // music.play();
     document.body.style.overflowY = "unset"
     window.onscroll = function() {}
 
