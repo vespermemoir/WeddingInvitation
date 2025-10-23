@@ -34,7 +34,7 @@ if (handleOrientation()) {
             InputSelect.add(NewOption);
         }
     })
-    .catch(error => console.error('Error loading JSON:', error));
+    .catch(error => handleVerification());
 
     setTimeout(() => {
         loadingPanel.setAttribute("hidden", "");
