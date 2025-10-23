@@ -14,8 +14,6 @@ loadingPanel.removeAttribute("hidden")
 
 if (handleOrientation()) {
     disableScrolling()
-    // document.body.style.overflowY = "hidden"
-
     const Path = `assets/python/GenerateFiles/guests/${id}.json`
     fetch(Path)
     .then(response => response.json())
@@ -40,7 +38,7 @@ if (handleOrientation()) {
 
     setTimeout(() => {
         loadingPanel.setAttribute("hidden", "");
-    }, 1500);
+    }, 2500);
 }
 
 document.getElementById('ScrollButton').addEventListener('click', function() {
