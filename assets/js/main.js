@@ -1,3 +1,5 @@
+const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbzCWQOW4QXTCnYZmxf3BiJaCzlpMdalGxkkzwMxYairh38vkPf6CLh1g86locuoHP8MXg/exec"
+
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 const id = urlParams.get('id');
@@ -14,27 +16,7 @@ loadingPanel.removeAttribute("hidden")
 
 if (handleOrientation()) {
     disableScrolling()
-    const Path = `assets/python/GenerateFiles/guests/${id}.json`
-    fetch(Path)
-    .then(response => response.json())
-    .then(data => {
-        const GuestName = document.getElementById("GuestNameTextCover")
-        GuestName.append(data.GuestName);
-
-        const GuestInput = document.getElementById("GuestName")
-        GuestInput.value = data.GuestName
-
-        const ButtonSubmit = document.getElementById("BtnSubmit")
-        data.Updated ? ButtonSubmit.setAttribute("hidden") : ""
-
-        const MaximumGuest = data.GuestMaxAttendance
-        const InputSelect = document.getElementById("GuestCounter")
-        for (let i = 1; i <= MaximumGuest; i++) {
-            const NewOption = new Option(i, i);
-            InputSelect.add(NewOption);
-        }
-    })
-    .catch(error => handleVerification());
+    getGuestById(id);
 
     setTimeout(() => {
         loadingPanel.setAttribute("hidden", "");
@@ -62,6 +44,35 @@ function disableScrolling() {
     var y = window.scrollY;
     window.onscroll = function() {
         window.scrollTo(x, y);
+    }
+}
+
+async function getGuestById(guestId) {
+    const response = await fetch(`${WEB_APP_URL}?id=${guestId}`, {
+        method: "GET",
+        mode: "cors"
+    });
+    const data = await response.json();
+    console.log(data);
+
+    const GuestName = document.getElementById("GuestNameTextCover")
+    GuestName.append(data.GuestName);
+
+    const GuestInput = document.getElementById("GuestName")
+    GuestInput.value = data.GuestName
+
+    const ButtonSubmit = document.getElementById("BtnSubmit")
+    data.Updated ? ButtonSubmit.setAttribute("hidden") : ""
+
+    const MaximumGuest = data.GuestMaxAttendance
+    const InputSelect = document.getElementById("GuestCounter")
+    for (let i = 1; i <= MaximumGuest; i++) {
+        const NewOption = new Option(i, i);
+        InputSelect.add(NewOption);
+    }
+
+    if (data.error) {
+        handleVerification()
     }
 }
 
